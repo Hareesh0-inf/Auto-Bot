@@ -29,11 +29,11 @@ const ImageProcessing = () => {
     if (!userid || !api) {
       router.push("/");
       return;
-    } // Provide default empty string
+    } 
     const formData = new FormData();
     formData.append("file", image);
-    formData.append("user_id", userid); // Now userid will always have a value  
-    formData.append("api", api); // Now userid will always have a value  
+    formData.append("user_id", userid);
+    formData.append("api", api); 
     try {
       const response = await fetch("http://localhost:8000/image/caption", {
         method: "POST",
@@ -41,7 +41,7 @@ const ImageProcessing = () => {
       });
 
       const data = await response.json();
-      setCaption(data.caption || "Failed to generate caption.");
+      setCaption(data.caption || "Failed to generate caption. Login using correct API");
     } catch (error) {
       console.error("Error generating caption:", error);
     } finally {
@@ -62,7 +62,7 @@ const ImageProcessing = () => {
       });
 
       const data = await response.json();
-      setAdvertisement(data.advertisement || "Failed to generate advertisement.");
+      setAdvertisement(data.advertisement || "Failed to generate advertisement. Login using correct API");
     } catch (error) {
       console.error("Error generating advertisement:", error);
     } finally {
