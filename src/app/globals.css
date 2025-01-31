@@ -14,8 +14,124 @@
   }
 }
 
+
 body {
-  color: var(--foreground);
+  color: white;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.send_button{
+ padding-left: 8px;
+ padding-right: 8px;
+ width: fit-content;
+ border: #d6d6d6 solid 2px;
+ background-color: rgb(224, 224, 224);
+ color: rgba(18, 21, 23,1);
+ border-radius: 50%;
+ transition: background-color 0.5s ease 0s
+}
+.send_button:hover{
+  background: rgb(77,76,76);
+  background: linear-gradient(115deg, rgba(77,76,76,1) 20%, rgba(165,122,223,1) 92%);
+}
+
+.chat {
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(47, 54, 62);
+  border: #d6d6d690 0.5px solid;
+}
+
+.chat-box {
+  margin-top: 30px;
+  width: 100%;
+  min-height: 100%;
+  position:absolute;
+  margin-left: 20%;
+  max-width: 60%; 
+  background-color: #374151; 
+  box-shadow: 0 4px 6px 0 rgb(22, 24, 27); 
+  border-radius: 0.5rem; 
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.chat-box:after, .chat-box:before {
+  content: '';
+  display: block;
+  height: 108%;
+  z-index: -10;
+  top:-2rem; right: 0; bottom: -2rem; left: 0;
+  position: absolute;
+  border-radius: 0.375rem; 
+  filter: blur(0.25rem); 
+  background: conic-gradient(from var(--angle),#ec4899,#22d3ee,#8b5cf6,#ec4899);
+  animation: rotate-grad 5s linear infinite;
+}
+
+.chat-box:before{
+  filter: blur(1.5rem);
+  opacity: 0.6;
+}
+
+@keyframes rotate-grad{
+  0%{
+    --angle : 0deg;
+  }
+  100%{
+    --angle : 360deg;  }
+}
+
+nav {
+  height: 10%;
+  z-index: 50;
+  
+}
+
+.bar{
+  bottom:100%;
+  z-index: 1;
+  background-color: rgb(85, 80, 80);
+  width: 100%;
+  height: min-content;
+  padding: 03 10 0 10;
+  position: sticky;
+  color:whitesmoke;
+  margin: 1 solid white;
+  margin-left: 1;
+  margin-right: 1;
+  border-bottom: 3px solid rgb(222, 222, 222);
+}
+
+
+.nvcontent{
+  padding: 03 03 03 03;
+  margin: 03 0 04 0;
+  border-radius: 5;
+}
+.nvcontent:hover{
+  background-color: #2f2e2e;
+}
+
+.img_title{
+  margin-top: 5px;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 33px;
+  letter-spacing: 4.8px;
+  word-spacing: 1px;
+  color: #1a1818c1;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: capitalize;
 }
