@@ -15,25 +15,21 @@ Auto-Bot is a comprehensive web application that seamlessly integrates a sophist
 ### **Summary of What We've Done**
 
 1. **Multi-User State Management with MongoDB**  
-   - Transitioned from temporary storage solutions to MongoDB, enabling scalable, persistent, and user-specific state management. This enhancement ensures data consistency and supports simultaneous multi-user interactions.
+   - MongoDB is used as a primary storage, enabling scalable, persistent, and user-specific state management. This enhancement ensures data consistency and supports simultaneous multi-user interactions.
 
 2. **FastAPI Endpoints Fixes & Enhancements**  
-   - Upgraded API endpoints to efficiently handle user-specific data requests, reduce latency, and support advanced features such as AI-driven image processing and dynamic response generation.
+   - Structured API endpoints to efficiently handle user-specific data requests, reduce latency, and support advanced features such as AI-driven image processing and dynamic response generation.
 
 3. **Image Captioning & Advertisement Generation**  
-   - Integrated AI models to significantly improve the quality of image captions and advertisement text suggestions. This advancement provides users with accurate, engaging, and creative outputs.
+   - Integrated Gemini models to significantly improve the quality of image captions and advertisement text suggestions. This advancement provides users with accurate, engaging, and creative outputs.
 
-4. **Frontend Fixes & Integration**  
-   - Implemented a seamless integration of backend APIs into the Next.js frontend. Enhanced the user interface to be clean, responsive, and intuitive, offering a polished user experience.
-
-5. **MongoDB & FastAPI Compatibility Fixes**  
-   - Addressed compatibility issues between MongoDB and FastAPI, ensuring smooth communication with proper data formatting, validation, and error handling.
+4. **Frontend Friendly**  
+   - Implemented a seamless integration of backend APIs into the Next.js frontend. Enhanced ,clean user interface made to be responsive, and intuitive, offering a polished user experience.
 
 ---
 
 ### **Next Steps / Remaining Tasks**
 
-🔹 Ensure that all stored messages are properly formatted and structured before saving in MongoDB to maintain consistency.  
 🔹 Optimize MongoDB queries for faster data retrieval and improved application performance, especially under high user loads.  
 🔹 Add comprehensive user authentication and session management features to enhance security and provide a personalized experience.  
 🔹 Implement real-time updates using technologies like WebSockets to deliver a more interactive and engaging chatbot experience.  
@@ -54,8 +50,8 @@ Auto-Bot is a comprehensive web application that seamlessly integrates a sophist
 2. Set up a virtual environment:  
    ```bash
    python -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   .\venv\Scripts\activate  # Windows
+   source .venv/bin/activate  # Linux/Mac
+   .venv\Scripts\activate  # Windows
    ```
 3. Install dependencies:  
    ```bash
@@ -63,7 +59,7 @@ Auto-Bot is a comprehensive web application that seamlessly integrates a sophist
    ```
 4. Start the FastAPI server:  
    ```bash
-   python app.py
+   python app\__init__.py
    ```
 
 #### **Frontend**
