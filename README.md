@@ -12,8 +12,6 @@ Auto-Bot is a comprehensive web application that seamlessly integrates a sophist
 
 ---
 
-### **Summary of What We've Done**
-
 1. **Multi-User State Management with MongoDB**  
    - MongoDB is used as a primary storage, enabling scalable, persistent, and user-specific state management. This enhancement ensures data consistency and supports simultaneous multi-user interactions.
 
