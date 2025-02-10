@@ -35,7 +35,7 @@ const ImageProcessing = () => {
     formData.append("user_id", userid);
     formData.append("api", api); 
     try {
-      const response = await fetch("http://localhost:8000/image/caption", {
+      const response = await fetch("https://autobot-cmar.onrender.com/image/caption", {
         method: "POST",
         body: formData,
       });
@@ -53,7 +53,7 @@ const ImageProcessing = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/image/advertisement", {
+      const response = await fetch("https://autobot-cmar.onrender.com/image/advertisement", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
