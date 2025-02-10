@@ -21,8 +21,6 @@ parser = MarkdownIt(renderer_cls=RendererPlain)
 
 port = os.environ.get("PORT") or 8000
 
-api_keys = {}
-
 load_dotenv()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -37,9 +35,7 @@ mongodb = MongoDB.connect(os.environ.get("MONGO_URL"), "auto-bot")
 
 user_states_collection = mongodb["user_states"]
 
-origins = [
-    "http://localhost:10000",
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
