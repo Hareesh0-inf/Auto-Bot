@@ -20,8 +20,6 @@ parser = MarkdownIt(renderer_cls=RendererPlain)
 
 api_keys = {}
 
-
-
 load_dotenv()
 @asynccontextmanager
 async def lifespan(app: FastAPI):

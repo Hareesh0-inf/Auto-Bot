@@ -7,3 +7,5 @@ langgraph
 langchain-google-genai
 mdit_plain
 motor
+markdown-it-py
+python-multipart
