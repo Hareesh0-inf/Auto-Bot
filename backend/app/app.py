@@ -27,7 +27,6 @@ async def lifespan(app: FastAPI):
     print("App is starting...")
     yield
     await MongoDB.close()
-    api_keys.clear()
     print("App is shutting down. API key cache cleared.")
 
 app = FastAPI(lifespan=lifespan)
@@ -68,8 +67,6 @@ async def store_api_key(request: APIKeyRequest):
                 "api_key": request.api_key
             })
             
-        # Store in cache and configure
-        api_keys[request.name] = existing_key
         return {"message": "Login successful"}
         
     except Exception as e:

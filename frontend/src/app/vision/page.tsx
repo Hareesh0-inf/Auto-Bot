@@ -8,8 +8,8 @@ const ImageProcessing = () => {
   const [caption, setCaption] = useState("");
   const [advertisement, setAdvertisement] = useState("");
   const [loading, setLoading] = useState(false);
-  const userid = sessionStorage.getItem("user_id") || "";
-  const api = sessionStorage.getItem("api") || "";
+  const userid = window.sessionStorage.getItem("user_id") || "";
+  const api = window.sessionStorage.getItem("api") || "";
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     setImage(file || null);

@@ -18,7 +18,7 @@ export default function Login() {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/store_api_key", {
+      const response = await fetch("https://autobot-cmar.onrender.com/store_api_key", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,8 +29,8 @@ export default function Login() {
       if (response.ok) {
         const data = await response.json();
         console.log("API Key stored successfully:", data);
-        sessionStorage.setItem("user_id",name);
-        sessionStorage.setItem("api",apiKey);
+        window.sessionStorage.setItem("user_id",name);
+        window.sessionStorage.setItem("api",apiKey);
         router.push("/chat");
       } else {
         setError("Failed to store API key. Please try again.");

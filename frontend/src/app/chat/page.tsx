@@ -13,7 +13,7 @@ export default function ChatPage() {
   ]);
   const router = useRouter();
   const sendMessage = async (userMessage: string) => {
-    const userId = sessionStorage.getItem("user_id");
+    const userId = window.sessionStorage.getItem("user_id");
     setMessages((prev) => [...prev, { role: 'user', content: userMessage }]);
     const response = await fetch('https://autobot-cmar.onrender.com/chat', {
       method: 'POST',
