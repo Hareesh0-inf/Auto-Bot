@@ -15,7 +15,7 @@ export default function ChatPage() {
   const sendMessage = async (userMessage: string) => {
     const userId = sessionStorage.getItem("user_id");
     setMessages((prev) => [...prev, { role: 'user', content: userMessage }]);
-    const response = await fetch('http://127.0.0.1:8000/chat', {
+    const response = await fetch('https://autobot-cmar.onrender.com/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user_id: userId, message: userMessage }),
