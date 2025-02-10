@@ -19,7 +19,7 @@ import uvicorn
 load_dotenv()
 parser = MarkdownIt(renderer_cls=RendererPlain)
 
-port = process.env.PORT or 8000 # type: ignore
+port = os.environ.get("PORT") or 8000
 
 api_keys = {}
 
