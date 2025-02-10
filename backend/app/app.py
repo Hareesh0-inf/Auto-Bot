@@ -38,7 +38,7 @@ mongodb = MongoDB.connect(os.environ.get("MONGO_URL"), "auto-bot")
 user_states_collection = mongodb["user_states"]
 
 origins = [
-    "http://localhost:3000",
+    "http://localhost:10000",
 ]
 
 app.add_middleware(
@@ -229,4 +229,4 @@ async def generate_advertisement(request: ImageRequest):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=port)
