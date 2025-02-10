@@ -14,9 +14,12 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from markdown_it import MarkdownIt
 from mdit_plain.renderer import RendererPlain
 from lib.database import MongoDB
+import uvicorn
 
 load_dotenv()
 parser = MarkdownIt(renderer_cls=RendererPlain)
+
+port = process.env.PORT or 8000 # type: ignore
 
 api_keys = {}
 
@@ -136,6 +139,8 @@ img_builder.add_edge(START, "imgdesc")
 chat_graph = graph_builder.compile()
 img_graph = img_builder.compile()
 
+
+
 @app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
     try:
@@ -221,3 +226,7 @@ async def generate_advertisement(request: ImageRequest):
     except Exception as e:
         print(f"Error: {e}")
         raise HTTPException(status_code=500, detail="Failed to generate advertisement.")
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=port)
