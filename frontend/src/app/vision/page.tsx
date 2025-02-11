@@ -8,15 +8,20 @@ const ImageProcessing = () => {
   const [caption, setCaption] = useState("");
   const [advertisement, setAdvertisement] = useState("");
   const [loading, setLoading] = useState(false);
-  const userid = window.sessionStorage.getItem("user_id") || "";
-  const api = window.sessionStorage.getItem("api") || "";
+  const router = useRouter();
+  var userid = "";
+  var api = "";
+  const API_URL = "https://autobot-cmar.onrender.com";
+  if (typeof window !== undefined) {
+    userid = window.sessionStorage.getItem("user_id") || "";
+    api = window.sessionStorage.getItem("api") || "";
+  }
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     setImage(file || null);
     setCaption("");
     setAdvertisement("");
   };
-
   const generateCaption = async () => {
     if (!image) {
       alert("Please upload an image first!");
@@ -25,7 +30,6 @@ const ImageProcessing = () => {
     
     setLoading(true);
 
-    const router = useRouter();
     if (!userid || !api) {
       router.push("/");
       return;
@@ -35,7 +39,7 @@ const ImageProcessing = () => {
     formData.append("user_id", userid);
     formData.append("api", api); 
     try {
-      const response = await fetch("https://autobot-cmar.onrender.com/image/caption", {
+      const response = await fetch(`${API_URL}/image/caption`, {
         method: "POST",
         body: formData,
       });
@@ -53,7 +57,7 @@ const ImageProcessing = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://autobot-cmar.onrender.com/image/advertisement", {
+      const response = await fetch(`${API_URL}/image/advertisement`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

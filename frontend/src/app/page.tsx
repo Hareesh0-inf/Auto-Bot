@@ -29,8 +29,10 @@ export default function Login() {
       if (response.ok) {
         const data = await response.json();
         console.log("API Key stored successfully:", data);
-        window.sessionStorage.setItem("user_id",name);
-        window.sessionStorage.setItem("api",apiKey);
+            if (typeof window !== undefined) {
+              window.sessionStorage.setItem("user_id",name);
+              window.sessionStorage.setItem("api",apiKey);
+            }
         router.push("/chat");
       } else {
         setError("Failed to store API key. Please try again.");
