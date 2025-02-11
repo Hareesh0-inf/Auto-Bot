@@ -6,14 +6,13 @@ import InputField from '../components/InputField';
 import { useState } from 'react';
 import React from 'react';
 
-
 export default function ChatPage() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([
     
   ]);
   const router = useRouter();
   var userId = "";
-  const sendMessage = async (userMessage: string) => { if (typeof window !== undefined) {
+  const sendMessage = async (userMessage: string) => { if (typeof window !== 'undefined') {
     userId = window.sessionStorage.getItem("user_id") || "";
   }
     setMessages((prev) => [...prev, { role: 'user', content: userMessage }]);

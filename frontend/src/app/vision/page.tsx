@@ -1,21 +1,28 @@
 'use client'
 
 import { useRouter } from "next/navigation";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useState, useEffect } from "react";
 
 const ImageProcessing = () => {
   const [image, setImage] = useState<File|null>(null);
   const [caption, setCaption] = useState("");
   const [advertisement, setAdvertisement] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isBrowser, setIsBrowser] = useState(false);
   const router = useRouter();
   var userid = "";
   var api = "";
   const API_URL = "https://autobot-cmar.onrender.com";
-  if (typeof window !== undefined) {
+
+  useEffect(() => {
+    setIsBrowser(typeof window !== "undefined");
+  }, []);
+
+  if (isBrowser) {
     userid = window.sessionStorage.getItem("user_id") || "";
     api = window.sessionStorage.getItem("api") || "";
   }
+
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     setImage(file || null);

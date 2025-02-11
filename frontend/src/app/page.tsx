@@ -29,7 +29,7 @@ export default function Login() {
       if (response.ok) {
         const data = await response.json();
         console.log("API Key stored successfully:", data);
-            if (typeof window !== undefined) {
+            if (typeof window !== "undefined") {
               window.sessionStorage.setItem("user_id",name);
               window.sessionStorage.setItem("api",apiKey);
             }
